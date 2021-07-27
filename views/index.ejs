@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>서버 Url : <%= Url %><br />현재 Url : <%= hUrl %>
+  </p>
+
+  <br /> =========QSW_001===========
+  <br /> =========로그인===========<br />
+  <form name="frm1" method="POST">
+    <%= Url %>users/login
+      <input type="text" name="SID" style="width:130px" placeholder="SID">
+      <input type="text" name="PassWord" style="width:130px" placeholder="PassWord">
+      <input value="로그인" onclick="javascript: frm1.action='/users/login';" type="submit" /><br />
+      00001, 1234
+  </form><br />
+  =========QSW_002 =========== <br />
+  =========비밀번호 찾기===========<br />
+  <form name="frm30" method="POST">
+    <%= Url %>users/signup
+    <input type="text" name="SID" style="width:60px" placeholder="SID">
+    <input type="text" name="TelNo" style="width:80px" placeholder="TelNo">
+    <input value="조회" onclick="javascript: frm30.action='/users/forgetpassword';"  type="submit" /> <br/>
+  00001, 01081819192
+</form> </br>
+=========QSW_002_1 =========== <br />
+=========비밀번호 변경===========<br />
+<form name="frm31" method="POST">
+  <%= Url %>users/updatepw
+  <input type="text" name="SID" style="width:60px" placeholder="SID">
+  <input type="text" name="PassWord" style="width:80px" placeholder="PassWord">
+  <input value="수정" onclick="javascript: frm31.action='/users/updatepw';"  type="submit" /> <br/>
+00001, 1234
+</form> </br>
+  =========QSW_002_2 =========== <br />
+  =========아이디 찾기===========<br />
+  <form name="frm32" method="POST">
+    <%= Url %>users/forgetSID
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input type="text" name="TelNo" style="width:80px" placeholder="TelNo">
+    <input value="조회" onclick="javascript: frm32.action='/users/forgetSID';"  type="submit" /> <br/>
+        1, 01081819192
+  </form> </br>
+  =========QSW_003 =========== <br />
+  =========DashBoard_금일 총 주문 내역===========<br />
+  <form name="frm33" method="POST">
+    <%= Url %>orders/DashBoardTodayData
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm33.action='/orders/DashBoardTodayData';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_003_2 =========== <br />
+  =========DashBoard_오늘 기준 1주일 총 주문 금액===========<br />
+  <form name="frm34" method="POST">
+    <%= Url %>orders/DashBoardWeekData
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm34.action='/orders/DashBoardWeekData';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004 =========== <br />
+  =========3-1-1. 주문 정보- 접수전 주문 목록(OC)===========<br />
+  <form name="frm35" method="POST">
+    <%= Url %>orders/OCorderlist
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm35.action='/orders/OCorderlist';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004_4 =========== <br />
+  =========3-1-1. 주문 정보- 취소요청 된 주문 목록(CP)===========<br />
+  <form name="frm106" method="POST">
+    <%= Url %>orders/CPorderlist
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm106.action='/orders/CPorderlist';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004_5 =========== <br />
+  =========3-1-1. 주문 정보- 취소완료 주문 목록(CUP)===========<br />
+  <form name="frm107" method="POST">
+    <%= Url %>orders/CUPorderlist
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm107.action='/orders/CUPorderlist';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004_6 =========== <br />
+  =========3-1-1. 주문 정보- 취소요청된 주문목록 Last값 (CP last값)===========<br />
+  <form name="frm108" method="POST">
+    <%= Url %>orders/CPLastList
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm108.action='/orders/CPLastList';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004_total =========== <br />
+  =========3-1-1. 주문 정보- 접수전 총 주문 목록(OC+RC+PC+CP)===========<br />
+  <form name="frm101" method="POST">
+    <%= Url %>orders/TotalOrderlist
+    <input type="text" name="StoreId" style="width:60px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm101.action='/orders/TotalOrderlist';"  type="submit" /> <br/>
+        1
+  </form> </br>
+  =========QSW_004_2=========== <br />
+  =========주문접수 OC->RC===========<br />
+  <form name="frm36" method="POST">
+    <%= Url %>orders/OCRCchange
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="변경" onclick="javascript: frm36.action='/orders/OCRCchange';" type="submit" />
+  </br> 1, 210427-imp_194244572376
+  </form><br />
+  =========QSW_004_3=========== <br />
+  =========주문접수 RC->OC===========<br />
+  <form name="frm37" method="POST">
+    <%= Url %>orders/OCrollback
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="변경" onclick="javascript: frm37.action='/orders/OCrollback';" type="submit" /><br />
+      1, 210427-imp_194244572376
+  </form><br />
+  =========QSW_005 =========== <br />
+  =========3-1-2 주문 정보- 주문 진행(RC,PC)===========<br />
+  <form name="frm38" method="POST">
+    <%= Url %>orders/RCorderlist
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm38.action='/orders/RCorderlist';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_005_2=========== <br />
+  =========제조완료RC->PC===========<br />
+  <form name="frm39" method="POST">
+    <%= Url %>orders/RCPCchange
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="변경" onclick="javascript: frm39.action='/orders/RCPCchange';" type="submit" /> <br />
+      1, 210427-imp_573728953832
+  </form><br />
+  =========QSW_005_3=========== <br />
+  =========제조완료 롤백 PC->RC===========<br />
+  <form name="frm40" method="POST">
+    <%= Url %>orders/RCrollback
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="롤백(PC->RC)" onclick="javascript: frm40.action='/orders/RCrollback';" type="submit" /><br />
+      1,210427-imp_573728953832
+  </form><br />
+  =========QSW_005_4=========== <br />
+  =========픽업완료PC->PUC===========<br />
+  <form name="frm41" method="POST">
+    <%= Url %>orders/PCPUCchange
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="변경" onclick="javascript: frm41.action='/orders/PCPUCchange';" type="submit" /> <br />
+      1, 210427-imp_429074653598
+  </form><br />
+  =========QSW_005_5=========== <br />
+  =========픽업완료 롤백 PUC->PC ===========<br />
+  <form name="frm42" method="POST">
+    <%= Url %>orders/PCrollback
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UserPayId" style="width:140px" placeholder="UserPayId">
+      <input value="롤백(PUC->PC)" onclick="javascript: frm42.action='/orders/PCrollback';" type="submit" /><br />
+      1, 210427-imp_429074653598
+  </form><br />
+  =========QSW_006 =========== <br />
+  =========3-2-1 주문 내역 - 목록 (오늘)===========<br />
+  <form name="frm43" method="POST">
+    <%= Url %>orders/paymentList
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm43.action='/orders/paymentList';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_006_2 =========== <br />
+  =========3-2-1 주문 내역 - 목록 (오늘 기준 1주일)===========<br />
+  <form name="frm44" method="POST">
+    <%= Url %>orders/paymentListweek
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm44.action='/orders/paymentListweek';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_006_3 =========== <br />
+  =========3-2-1 주문 내역 - 목록 (오늘 기준 1개월)===========<br />
+  <form name="frm45" method="POST">
+    <%= Url %>orders/paymentListmonth
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm45.action='/orders/paymentListmonth';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_006_4 =========== <br />
+  =========3-2-1 주문 내역 - 목록 (오늘 기준 3개월)===========<br />
+  <form name="frm46" method="POST">
+    <%= Url %>orders/paymentListmonth3
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm46.action='/orders/paymentListmonth3';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_006_5 =========== <br />
+  =========3-2-1 주문 내역 - 목록 (기간선택)===========<br />
+  <form name="frm47" method="POST">
+    <%= Url %>orders/paymentListDetail
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="StartDT" style="width:80px" placeholder="StartDT">
+      <input type="text" name="EndDT" style="width:80px" placeholder="EndDT">
+      <input value="조회" onclick="javascript: frm47.action='/orders/paymentListDetail';" type="submit" /><br />
+      1, 2021-04-01 , 2021-04-20
+  </form><br />
+  =========QSW_007 =========== <br />
+  =========3-2-2 주문내역 - 상세정보===========<br />
+  <form name="frm48" method="POST">
+    <%= Url %>orders/paymentInfo
+      <input type="text" name="UserPayId" style="width:160px" placeholder="UserPayId">
+      <input value="조회" onclick="javascript: frm48.action='/orders/paymentInfo';" type="submit" /><br />
+      210427-imp_573728953832
+  </form><br />
+
+
+
+  =========QSW_012 =========== <br />
+  =========5-1-1. 매장 정보 관리===========<br />
+  <form name="frm49" method="POST">
+    <%= Url %>store/storeInfo
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm49.action='/store/storeInfo';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_013 =========== <br />
+  ========5-1-2. 매장 정보 관리 - 수정===========<br />
+
+    <table border="1" style="width:600px;line-height: 30px;"> 
+      <form name="frm50" method="POST">
+        <tr>
+          <td style="color:blue"> 매장ID : <input type="text" name="StoreId" style="width:80px"  placeholder="StoreId" > 1</td>
+        </tr>
+        <tr>
+          <td style="color:red"> 매장명 : <input type="text" name="StoreName" style="width:150px"  placeholder="StoreName" > 헤일로 로스터스</td>
+        </tr>
+        <tr>
+          <td style="color:red"> 오픈시간 : <input type="text" name="OpenTime" style="width:70px"  placeholder="OpenTime" > 08:00</td>
+        </tr>
+        <tr>
+          <td style="color:red">  마감시간 : <input type="text" name="CloseTime" style="width:70px"  placeholder="CloseTime">16:00 </td>
+        </tr>
+        <tr>
+          <td style="color:red"> 휴무일 : <input type="text" name="DayOff" style="width:80px" placeholder="DayOff" > 주말 휴무</td>
+        </tr>
+        <tr>
+          <td style="color:red"> 전화번호 : <input type="text" name="TelNo" style="width:88px"  placeholder="TelNo">061-334-8444</td>
+        </tr>
+        <tr>
+          <td style="color:red"> 기본주소 : <input type="text" name="Addr1" style="width:300px"  placeholder="Addr1">전라남도 나주시 금천면 </td>
+        </tr>
+        <tr>
+          <td style="color:red"> 상세주소 : <input type="text" name="Addr2" style="width:300px"  placeholder="Addr2">상아1길 21 </td>
+        </tr>
+        <tr>
+          <td style="color:red">위도 : <input type="text" name="Lat" style="width:89px" placeholder="Lat" >35.0224384</td>
+        </tr>
+        <tr>
+          <td style="color:red">경도 : <input type="text" name="Lon" style="width:89px"  placeholder="Lon">126.7924992</td>
+        </tr>
+        <tr>
+          <td>신군구코드 : <input type="text" name="SigunguCode" style="width:80px"  placeholder="SigunguCode">46170</td>
+        </tr>
+        <tr>
+          <td style="color:red">메인이미지 : <input type="text" name="MainImgUrl" style="width:300px"  placeholder="MainImgUrl"> </td>
+        </tr>
+        <tr>
+          <td>상세이미지 : <input type="text" name="DetailImgUrl" style="width:300px"  placeholder="DetailImgUrl"></td>
+        </tr>
+        <tr>
+          <td>사용여부 : <input type="text" name="SUseYn" style="width:40px"  placeholder="SUseYn">Y</td>
+        </tr>
+        <tr>
+          <td>InsertTime : <input type="text" name="InsertDT" style="width:120px"  placeholder="InsertDT"></td>
+        </tr>
+        <tr>
+          <td>
+            <%= Url %>store/storeUpdate
+            <input value="수정" onclick="javascript: frm50.action='/store/storeUpdate';"  type="submit" />
+           
+          </td>
+        </tr>
+      </form> 
+    </table> 
+
+  <br />=========QSW_014 =========== <br />
+  ============5-2-1. 카테고리 관리 - 목록===========<br />
+  <form name="frm51" method="POST">
+    <%= Url %>store/category
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="UseYn" style="width:80px" placeholder="UseYn">
+      <input value="조회" onclick="javascript: frm51.action='/store/category';" type="submit" /><br />
+      1, 공백->전체조회
+  </form><br />
+  <br />=========QSW_014_2 =========== <br />
+  ============5-2-1. 카테고리 관리 - 목록- 상세===========<br />
+  <form name="frm13" method="POST">
+    <%= Url %>store/categoryDetail
+      <input type="text" name="SID" style="width:80px" placeholder="SID">
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm13.action='/store/categoryDetail';" type="submit" /><br />
+      8,1
+  </form><br />
+  <br />=========QSW_014_3 =========== <br />
+  ============5-2-1. 카테고리 관리 - 목록 - not in  ===========<br />
+  <form name="frm18" method="POST">
+    <%= Url %>store/categorymenu
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm18.action='/store/categorymenu';" type="submit" /><br />
+      1
+  </form><br />
+  <br />=========QSW_014_4 =========== <br />
+  ============5-2-1. 카테고리 관리 - 목록 - 카테고리별 정렬===========<br />
+  <form name="frm19" method="POST">
+    <%= Url %>store/categorymid
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input type="text" name="CateCd" style="width:80px" placeholder="CateCd">
+      <input value="조회" onclick="javascript: frm19.action='/store/categorymid';" type="submit" /><br />
+      1, D
+  </form><br />
+  <br />=========QSW_015 =========== <br />
+  ============5-2-2. 카테고리 관리 - 등록 ===========<br />
+  <form name="frm52" method="POST">
+    <%= Url %>store/categoryInsert
+      <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+      <input type="text" name="CateCd" style="width:50px" placeholder="CateCd">
+      <input type="text" name="CateNm" style="width:80px" placeholder="CateNm">
+      <input type="text" name="MidCateCd" style="width:80px" placeholder="MidCateCd">
+      <input type="text" name="MidCateNm" style="width:80px" placeholder="MidCateNm">
+      <input type="text" name="CateDetail" style="width:300px" placeholder="CateDetail">>
+      <input value="등록" onclick="javascript: frm52.action='/store/categoryInsert';" type="submit" /><br />
+      1, B, 베이커리, 빵 종류 관리하는 겁니다.
+  </form><br />
+  <br />=========QSW_015_2 =========== <br />
+  ============5-2-2. 카테고리 관리 - 수정 ===========<br />
+  <form name="frm53" method="POST">
+    <%= Url %>store/categoryUpdate
+      <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+      <input type="text" name="CateCd" style="width:80px" placeholder="CateCd">
+      <input type="text" name="CateNm" style="width:80px" placeholder="CateNm">
+      <input type="text" name="MidCateCd" style="width:80px" placeholder="MidCateCd">
+      <input type="text" name="MidCateNm" style="width:80px" placeholder="MidCateNm">
+      <input type="text" name="CateDetail" style="width:300px" placeholder="CateDetail">>
+      <input type="text" name="UseYn" style="width:50px" placeholder="UseYn">>
+      <input value="수정" onclick="javascript: frm53.action='/store/categoryUpdate';" type="submit" /><br />
+      1, 베이커리, 빵 종류 관리하는 겁니다. , Y
+  </form><br />
+  =========QSW_016=========== <br />
+  =========5-3-1. 상품 관리 - 목록===========<br />
+  <form name="frm54" method="POST">
+    <%= Url %>menu/menulist
+      <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+      <input value="조회" onclick="javascript: frm54.action='/menu/menulist';" type="submit" /><br />
+      1
+  </form><br />
+  =========QSW_017 =========== <br />
+  ============5-2-2. 메뉴 -상세조회, 등록, 수정,삭제===========<br />
+  <form name="frm55" method="POST">
+    <table border="1" style="width:600px;line-height: 30px;"> 
+      <tr>
+        <td style="color:blue">매장ID : <input type="text" name="StoreId" style="width:60px" placeholder="StoreId" >    1 </td>
+      </tr>
+      <tr>
+        <td style="color:blue">메뉴ID : <input type="text" name="MenuId" style="width:80px" placeholder="MenuId" >    DE001</td>       
+      </tr>
+      <tr>
+        <td  style="color:red"> 대분류코드 : <input type="text" name="LargeDivCd" style="width:80px" placeholder="LargeDivCd" >    D </td>
+      </tr>
+      <tr>
+        <td  style="color:red">중분류코드 : <input type="text" name="MidDivCd" style="width:80px"placeholder="MidDivCd" >    E</td>
+      </tr>
+      <tr>
+        <td  style="color:red">메뉴이름 : <input type="text" name="MenuName" style="width:140px"placeholder="MenuName" >    에스프레소</td>
+      </tr>
+      <tr>
+        <td style="color:red">  가격 : <input type="text" name="Price" style="width:66px"placeholder="Price" >    100</td>
+      </tr>
+      <tr>
+        <td  style="color:red">이미지경로 : <input type="text" name="ImgUrl" style="width:300px"placeholder="ImgUrl" >https://image.istarbucks.co.kr/upload/store/skuimg/2019/09/[9200000002487]_20190919181354811.jpg</td>
+      </tr>
+      <tr>
+        <td  style="color:red">옵션1 : <input type="text" name="OptionA" style="width:86px" placeholder="OptionA">    ICE,HOT</td>
+      </tr>
+      <tr>
+        <td  style="color:red">옵션2 : <input type="text" name="OptionB" style="width:86px"placeholder="OptionB" >    Large,Small</td>
+      </tr>
+      <tr>
+        <td  style="color:red">옵션3 : <input type="text" name="OptionC" style="width:86px" placeholder="OptionC">    개인컵,일회용컵,매장컵</td>
+      </tr>
+      <tr>
+        <td  style="color:red">상품설명 : <input type="text" name="Contents" style="width:400px" placeholder="Contents">  <br /> 케냐에서만 자라는 산미가 넘치는 커피원두입니다. </td>
+      </tr>
+      <tr>
+        <td  style="color:red">추천 : <input type="text" name="Best" style="width:60px" placeholder="Best">Y</td>
+      </tr>
+      <tr>
+        <td  style="color:red">메뉴삭제유무 : <input type="text" name="DelYn" style="width:60px" placeholder="DelYn">N</td>
+      </tr>
+      <tr>
+        <td  style="color:red">사용여부 <input type="text" name="UseYn" style="width:60px" placeholder="UseYn">Y</td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= Url %>menu/menuInfo
+            <input value="조회" onclick="javascript: frm55.action='/menu/menuInfo';" type="submit" /> 값- StoreId,MenuId<br/> 
+            <%= Url %>menu/menuOption
+            <input value="옵션조회" onclick="javascript: frm55.action='/menu/menuOption';" type="submit" /> 값- StoreId,LargeDivCd<br/> 
+          <%= Url %>menu/Minsert
+          <input value="등록" onclick="javascript: frm55.action='/menu/Minsert';" type="submit" /> 값- StoreId,LargeDivCd,MidDivCd<br/>
+          <%= Url %>menu/Mupdate
+          <input value="수정" onclick="javascript: frm55.action='/menu/Mupdate';"  type="submit" /> 값- StoreId,MenuId<br/>
+          <%= Url %>menu/MDelete
+          <input value="삭제" onclick="javascript: frm55.action='/menu/MDelete';"  type="submit" /> 값- StoreId,MenuId<br/>
+        </td>
+      </tr>
+  </table>
+</form>
+=========QSW_018=========== <br />
+=========5-4-1. 직원 관리 - 목록===========<br />
+<form name="frm56" method="POST">
+  <%= Url %>store/staffList
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm56.action='/store/staffList';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_018_2=========== <br />
+=========5-4-1. 직원 관리 - 목록 - 상세===========<br />
+<form name="frm14" method="POST">
+  <%= Url %>store/staffListDetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="EmployeeCd" style="width:80px" placeholder="EmployeeCd">
+    <input value="조회" onclick="javascript: frm14.action='/store/staffListDetail';" type="submit" /><br />
+    1, 1001
+</form><br />
+<br />=========QSW_019 =========== <br />
+============5-4-2. 직원 관리 - 등록 ===========<br />
+<form name="frm57" method="POST">
+  <%= Url %>store/staffInsert
+    <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+    <input type="text" name="ClassCd" style="width:80px" placeholder="ClassCd">
+    <input type="text" name="ClassNm" style="width:80px" placeholder="ClassNm">
+    <input type="text" name="EmployeeNm" style="width:80px" placeholder="EmployeeNm">
+    <input type="text" name="PhoneNum" style="width:90px" placeholder="PhoneNum">
+    <input type="text" name="StartDt" style="width:90px" placeholder="StartDt">
+    <input value="등록" onclick="javascript: frm57.action='/store/staffInsert';" type="submit" /><br />
+    1, M,매니저, 곽두팔, 01050148733, 20200505
+</form><br />
+<br />=========QSW_019_2 =========== <br />
+============5-4-2. 직원 관리 - 수정===========<br />
+<form name="frm58" method="POST">
+  <%= Url %>store/staffUpdate
+  <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+  <input type="text" name="ClassCd" style="width:80px" placeholder="ClassCd">
+  <input type="text" name="ClassNm" style="width:80px" placeholder="ClassNm">
+  <input type="text" name="EmployeeCd" style="width:80px" placeholder="EmployeeCd">
+  <input type="text" name="EmployeeNm" style="width:80px" placeholder="EmployeeNm">
+  <input type="text" name="PhoneNum" style="width:90px" placeholder="PhoneNum">
+  <input type="text" name="UseYn" style="width:90px" placeholder="UseYn">
+  <input type="text" name="StartDt" style="width:90px" placeholder="StartDt">
+  <input type="text" name="EndDt" style="width:90px" placeholder="EndDt">
+    <input value="수정" onclick="javascript: frm58.action='/store/staffUpdate';" type="submit" /><br />
+    1, E, 직원, 1002, 안시영, 01035353535, Y,20200606, 20210518
+</form><br />
+=========QSW_020=========== <br />
+=========5-5-1. 행사 관리 - 목록===========<br />
+<form name="frm59" method="POST">
+  <%= Url %>store/eventList
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm59.action='/store/eventList';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_020_2=========== <br />
+=========5-5-1. 행사 관리 - 목록 - 상세===========<br />
+<form name="frm15" method="POST">
+  <%= Url %>store/eventListDetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="EventCd" style="width:80px" placeholder="EventCd">
+    <input value="조회" onclick="javascript: frm15.action='/store/eventListDetail';" type="submit" /><br />
+    1,10001
+</form><br />
+<br />=========QSW_021 =========== <br />
+============5-5-2. 행사 관리 - 등록 ===========<br />
+<form name="frm60" method="POST">
+  <%= Url %>store/eventInsert
+    <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+    <input type="text" name="CateCd" style="width:80px" placeholder="CateCd">
+    <input type="text" name="MenuId" style="width:80px" placeholder="MenuId">
+    <input type="text" name="EventType" style="width:80px" placeholder="EventType">
+    <input type="text" name="EventNm" style="width:80px" placeholder="EventNm">
+    <input type="text" name="SaleType" style="width:80px" placeholder="SaleType">
+    <input type="text" name="SaleValue" style="width:90px" placeholder="SaleValue">
+    <input type="text" name="StartDt" style="width:90px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:90px" placeholder="EndDt">
+    <input value="등록" onclick="javascript: frm60.action='/store/eventInsert';" type="submit" /><br />
+    1, D,DE001, D, 아메리카노 행사, 원, 10, 20210101, 20221231
+</form><br />
+<br />=========QSW_021_2 =========== <br />
+============5-5-2. 행사 관리 - 수정===========<br />
+<form name="frm61" method="POST">
+  <%= Url %>store/eventUpdate
+  <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+  <input type="text" name="CateCd" style="width:80px" placeholder="CateCd">
+  <input type="text" name="MenuId" style="width:80px" placeholder="MenuId">
+    <input type="text" name="EventType" style="width:80px" placeholder="EventType">
+  <input type="text" name="EventCd" style="width:80px" placeholder="EventCd">
+  <input type="text" name="EventNm" style="width:120px" placeholder="EventNm">
+  <input type="text" name="SaleType" style="width:80px" placeholder="SaleType">
+  <input type="text" name="SaleValue" style="width:90px" placeholder="SaleValue">
+  <input type="text" name="StartDt" style="width:90px" placeholder="StartDt">
+  <input type="text" name="EndDt" style="width:90px" placeholder="EndDt">
+  <input type="text" name="UseYn" style="width:90px" placeholder="UseYn">
+    <input value="수정" onclick="javascript: frm61.action='/store/eventUpdate';" type="submit" /><br />
+    1, D,10001,아메리카노 행사, 원, 10, 20210405, 20211231, Y
+</form><br />
+=========QSW_020-1=========== <br />
+========= 행사-프리퀀시 관리 - 목록===========<br />
+<form name="frm12" method="POST">
+  <%= Url %>store/eventfrequencyList
+    <input type="text" name="EventCd" style="width:80px" placeholder="EventCd">
+    <input value="조회" onclick="javascript: frm12.action='/store/eventfrequencyList';" type="submit" /><br />
+    10007
+</form><br />
+=========QSW_021-1 =========== <br />
+============행사-프리퀀시 관리 - 등록 ===========<br />
+<form name="frm10" method="POST">
+  <%= Url %>store/eventfrequencyInsert
+    <input type="text" name="EventCd" style="width:80px" placeholder="EventCd">
+    <input type="text" name="OptionA" style="width:80px" placeholder="OptionA">
+    <input type="text" name="CntA" style="width:80px" placeholder="CntA">
+    <input type="text" name="OptionB" style="width:80px" placeholder="OptionB">
+    <input type="text" name="CntB" style="width:90px" placeholder="CntB">
+    <input type="text" name="OptionC" style="width:80px" placeholder="OptionC">
+    <input type="text" name="CntC" style="width:90px" placeholder="CntC">
+    <input type="text" name="Present" style="width:90px" placeholder="Present">
+    <input value="등록" onclick="javascript: frm10.action='/store/eventfrequencyInsert';" type="submit" /><br />
+    10007, 일반음료, 10, 스페셜음료, 3, 텀블러 선물세트
+</form><br />
+<br />=========QSW_021-1_2 =========== <br />
+============행사-프리퀀시 관리 - 수정===========<br />
+<form name="frm11" method="POST">
+  <%= Url %>store/eventfrequencyUpdate
+  <input type="text" name="EventCd" style="width:80px" placeholder="EventCd">
+  <input type="text" name="OptionA" style="width:80px" placeholder="OptionA">
+  <input type="text" name="CntA" style="width:80px" placeholder="CntA">
+  <input type="text" name="OptionB" style="width:80px" placeholder="OptionB">
+  <input type="text" name="CntB" style="width:90px" placeholder="CntB">
+  <input type="text" name="OptionC" style="width:80px" placeholder="OptionC">
+  <input type="text" name="CntC" style="width:90px" placeholder="CntC">
+  <input type="text" name="Present" style="width:90px" placeholder="Present">
+    <input value="수정" onclick="javascript: frm11.action='/store/eventfrequencyUpdate';" type="submit" /><br />
+    10007,일반음료, 10 , 스페셜음료, 3, 텀블러선물세트
+</form><br />
+=========QSW_022=========== <br />
+=========6-1-1. 재고 관리 - 목록===========<br />
+<form name="frm62" method="POST">
+  <%= Url %>store/stockList
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm62.action='/store/stockList';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_022_2=========== <br />
+=========6-1-1. 재고 관리 -상세 목록===========<br />
+<form name="frm20" method="POST">
+  <%= Url %>store/stockInfo
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StockCd" style="width:80px" placeholder="StockCd">
+    <input value="조회" onclick="javascript: frm20.action='/store/stockInfo';" type="submit" /><br />
+    1,10004
+</form><br />
+=========QSW_022_3=========== <br />
+=========6-1-1. 재고 히스토리 - 목록===========<br />
+<form name="frm16" method="POST">
+  <%= Url %>store/stockHistoryList
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StockCd" style="width:80px" placeholder="StockCd">
+    <input type="text" name="WSType" style="width:80px" placeholder="WSType">
+    <input value="조회" onclick="javascript: frm16.action='/store/stockHistoryList';" type="submit" /><br />
+    1, 10004, S
+</form><br />
+<br />=========QSW_023 =========== <br />
+============6-1-2. 재고 관리 - 등록 ===========<br />
+<form name="frm63" method="POST">
+  <%= Url %>store/stockInsert
+    <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+    <input type="text" name="StockNm" style="width:80px" placeholder="StockNm">
+    <input type="text" name="StockCnt" style="width:80px" placeholder="StockCnt">
+    <input type="text" name="WarehousingDt" style="width:90px" placeholder="WarehousingDt">
+    <input value="등록" onclick="javascript: frm63.action='/store/stockInsert';" type="submit" /><br />
+    1, 원두, 100, 20210525
+</form><br />
+
+<br />=========QSW_024 =========== <br />
+============6-1-3. 재고 관리 - 입고 & 출고 재고 관리 - 등록===========<br />
+<form name="frm64" method="POST">
+  <%= Url %>store/stockUpdate
+  <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+  <input type="text" name="StockCd" style="width:80px" placeholder="StockCd">
+  <input type="text" name="StockCnt" style="width:80px" placeholder="StockCnt">
+  <input type="text" name="WSType" style="width:90px" placeholder="WSType">
+  <input type="text" name="StockDt" style="width:90px" placeholder="StockDt">
+    <input value="등록" onclick="javascript: frm64.action='/store/stockUpdate';" type="submit" /><br />
+     1, 10004, 10, S, 20210525
+</form><br />
+
+<br />=========QSW_024_2 =========== <br />
+============6-1-3. 재고 관리 - UseYn update===========<br />
+<form name="frm21" method="POST">
+  <%= Url %>store/stockUseYn
+  <input type="text" name="StoreId" style="width:50px" placeholder="StoreId">
+  <input type="text" name="StockCd" style="width:80px" placeholder="StockCd">
+  <input type="text" name="UseYn" style="width:80px" placeholder="UseYn">
+    <input value="수정" onclick="javascript: frm21.action='/store/stockUseYn';" type="submit" /><br />
+     1, 10004, Y
+</form><br />
+=========QSW_025=========== <br />
+=========7-1-1. 회원 관리 - 목록===========<br />
+<form name="frm17" method="POST">
+  <%= Url %>users/memberList
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm17.action='/users/memberList';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_025_2=========== <br />
+=========7-1-1. 회원 관리 - 목록 - 상세===========<br />
+<form name="frm65" method="POST">
+  <%= Url %>users/memberinfo
+  <input type="text" name="UserId" style="width:80px" placeholder="UserId">
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm65.action='/users/memberinfo';" type="submit" /><br />
+    55, 1
+</form><br />
+=========QSW_026=========== <br />
+=========7-1-2. 회원 정보 - 수정===========<br />
+<form name="frm66" method="POST">
+  <%= Url %>users/memberUpdate
+    <input type="text" name="UserId" style="width:80px;color:blue" placeholder="UserId">
+    <input type="text" name="NickName" style="width:80px;color:red" placeholder="NickName">
+    <input type="text" name="TelNo" style="width:80px;color:red" placeholder="TelNo">
+    <input value="수정" onclick="javascript: frm66.action='/users/memberUpdate';" type="submit" /><br />
+    55, 1, 곽정훈남가이, 01050148734
+</form><br />
+=========QSW_027=========== <br />
+=========7-1-3. 회원 관리 - 주문내역===========<br />
+<form name="frm67" method="POST">
+  <%= Url %>users/memberOrderList
+  <input type="text" name="UserId" style="width:80px" placeholder="UserId">
+  <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm67.action='/users/memberOrderList';" type="submit" /><br />
+    55, 1
+</form><br />
+=========QSW_028=========== <br />
+=========7-1-4. 회원 관리 - 선불 카드 내역===========<br />
+<form name="frm68" method="POST">
+  <%= Url %>users/PreCardnfo
+    <input type="text" name="UserId" style="width:80px" placeholder="UserId">
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm68.action='/users/PreCardInfo';" type="submit" /><br />
+    55, 1
+</form><br />
+=========QSW_029=========== <br />
+=========7-1-5. 회원 관리 - 쿠폰 내역===========<br />
+<form name="frm69" method="POST">
+  <%= Url %>users/CouponList
+    <input type="text" name="UserId" style="width:80px" placeholder="UserId">
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm69.action='/users/CouponList';" type="submit" /><br />
+    55, 1
+</form><br />
+=========QSW_030=========== <br />
+========= 8-1-1. 공지 사항 - 목록===========<br />
+<form name="frm70" method="POST">
+  <%= Url %>notice/boardlist
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="Title" style="width:80px" placeholder="Title">
+    <input value="조회" onclick="javascript: frm70.action='/notice/boardlist';" type="submit" /><br />
+    1, 아메리카노
+</form><br />
+=========QSW_030_2=========== <br />
+========= 8-1-1. 공지 사항 - 상세목록===========<br />
+<form name="frm71" method="POST">
+  <%= Url %>notice/boardselect
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="SID" style="width:80px" placeholder="SID">
+    <input value="조회" onclick="javascript: frm71.action='/notice/boardselect';" type="submit" /><br />
+    1, 7
+</form><br />
+=========QSW_031-1 =========== <br />
+============8-1-2. 공지 사항 - 등록  ===========<br />
+<form name="frm72" method="POST">
+  <%= Url %>notice/boardinsert
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="Title" style="width:130px" placeholder="Title">
+  <input type="text" name="Contents" style="width:500px" placeholder="Contents">
+  <input type="text" name="InsertNm" style="width:130px" placeholder="InsertNm">
+  <input value="등록" onclick="javascript: frm72.action='/notice/boardinsert';" type="submit" /><br />
+    1, 카페라떼 가격 변경 안내, 100원에서 1000원으로, 관리자
+</form><br />
+<br />=========QSW_031_2 =========== <br />
+============8-1-2. 공지 사항 - 수정===========<br />
+<form name="frm73" method="POST">
+  <%= Url %>notice/boardupdate
+  <input type="text" name="SID" style="width:130px" placeholder="SID">
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="Title" style="width:130px" placeholder="Title">
+  <input type="text" name="Contents" style="width:500px" placeholder="Contents">
+  <input type="text" name="UseYn" style="width:500px" placeholder="UseYn">
+  <input type="text" name="InsertNm" style="width:130px" placeholder="InsertNm">
+    <input value="수정" onclick="javascript: frm73.action='/notice/boardupdate';" type="submit" /><br />
+    16,1, 커피등록 , 커피등록컨텐츠, 00001
+</form><br />
+=========QSW_032=========== <br />
+========= 8-2-1. 고객센터 -(1:1 문의내역) 목록===========<br />
+<form name="frm74" method="POST">
+  <%= Url %>notice/suggestlist
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="Title" style="width:80px" placeholder="Title">
+    <input value="조회" onclick="javascript: frm74.action='/notice/suggestlist';" type="submit" /><br />
+    1, 제목
+</form><br />
+=========QSW_032_2=========== <br />
+========= 8-2-1. 고객센터 -(1:1 문의내역) 상세목록===========<br />
+<form name="frm75" method="POST">
+  <%= Url %>notice/suggestselect
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="SID" style="width:80px" placeholder="SID">
+    <input value="조회" onclick="javascript: frm75.action='/notice/suggestselect';" type="submit" /><br />
+    1, 43
+</form><br />
+<br />=========QSW_033 =========== <br />
+============8-2-2. 고객센터 -(1:1 문의내역) 수정===========<br />
+<form name="frm76" method="POST">
+  <%= Url %>notice/suggestupdate
+  <input type="text" name="SID" style="width:130px" placeholder="SID">
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="ReContents" style="width:500px" placeholder="ReContents">
+  <input type="text" name="UpdateNm" style="width:130px" placeholder="UpdateNm">
+  <input type="text" name="UseYn" style="width:130px" placeholder="UseYn">
+  <input value="수정" onclick="javascript: frm76.action='/notice/suggestupdate';" type="submit" /><br />
+    24,1, 우리 애기도 먹일 수 있는 커피는 업습니다.. , 임꺽정훈
+</form><br />
+<br />=========QSW_033_2 =========== <br />
+============8-2-2. 고객센터 -(1:1 문의내역) 등록===========<br />
+<form name="frm103" method="POST">
+  <%= Url %>notice/suggestinsert
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="Title" style="width:130px" placeholder="Title">
+  <input type="text" name="Contents" style="width:500px" placeholder="Contents">
+  <input type="text" name="InsertNm" style="width:130px" placeholder="InsertNm">
+  <input value="등록" onclick="javascript: frm103.action='/notice/suggestinsert';" type="submit" /><br />
+    24,1, 우리 애기도 먹일 수 있는 커피는 업습니다.. , 임꺽정훈
+</form><br />
+=========QSW_034=========== <br />
+========= 8-3-1. FAQ -(자주하는 질문) 목록===========<br />
+<form name="frm77" method="POST">
+  <%= Url %>notice/inquirelist
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="Title" style="width:80px" placeholder="Title">
+    <input value="조회" onclick="javascript: frm77.action='/notice/inquirelist';" type="submit" /><br />
+    1, 원두
+</form><br />
+=========QSW_034_2=========== <br />
+========= 8-3-1. FAQ -(자주하는 질문) 상세목록===========<br />
+<form name="frm78" method="POST">
+  <%= Url %>notice/inquireselect
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="SID" style="width:80px" placeholder="SID">
+    <input value="조회" onclick="javascript: frm78.action='/notice/inquireselect';" type="submit" /><br />
+    1, 25
+</form><br />
+<br />=========QSW_035 =========== <br />
+============8-3-2. FAQ -(자주하는 질문) 수정===========<br />
+<form name="frm79" method="POST">
+  <%= Url %>notice/inquireupdate
+  <input type="text" name="SID" style="width:130px" placeholder="SID">
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="Title" style="width:130px" placeholder="Title">
+  <input type="text" name="Contents" style="width:500px" placeholder="Contents">
+  <input type="text" name="UseYn" style="width:130px" placeholder="UseYn">
+  <input type="text" name="InsertNm" style="width:130px" placeholder="InsertNm">
+    <input value="수정" onclick="javascript: frm79.action='/notice/inquireupdate';" type="submit" /><br />
+    25,1, 원두는 1시간에 1번 주문하고있습니다 , 임꺽정훈
+</form><br />
+<br />=========QSW_035_2 =========== <br />
+============8-3-2. FAQ -(자주하는 질문) - 등록===========<br />
+<form name="frm104" method="POST">
+  <%= Url %>notice/inquireinsert
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="Title" style="width:130px" placeholder="Title">
+  <input type="text" name="Contents" style="width:500px" placeholder="Contents">
+  <input type="text" name="InsertNm" style="width:130px" placeholder="InsertNm">
+  <input value="등록" onclick="javascript: frm104.action='/notice/inquireinsert';" type="submit" /><br />
+
+</form><br />
+<br />=========QSW_008 =========== <br />
+============4-1. 매출 달력===========<br />
+<form name="frm22" method="POST">
+  <%= Url %>Store/calendar
+  <input type="text" name="StoreId" style="width:130px" placeholder="StoreId">
+  <input type="text" name="InsertDt" style="width:130px" placeholder="InsertDt">
+    <input value="조회" onclick="javascript: frm22.action='/Store/calendar';" type="submit" /><br />
+    1, 2021-04
+</form><br />
+=========QSW_008_2 =========== <br />
+========= 4-1 매출 달력 - 이번 달 총 매출 금액===========<br />
+<form name="frm23" method="POST">
+  <%= Url %>Store/MonthTotalpayment
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="InsertDt" style="width:80px" placeholder="InsertDt">
+    <input value="조회" onclick="javascript: frm23.action='/Store/MonthTotalpayment';" type="submit" /><br />
+    1, 2021-04
+</form><br />
+=========QSW_009 =========== <br />
+========= 4-2 매출 분석 -  결제정보(1day) ===========<br />
+<form name="frm24" method="POST">
+  <%= Url %>Store/salesday
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm24.action='/Store/salesday';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_2 =========== <br />
+========= 4-2 매출 분석 -  결제정보(1week)) ===========<br />
+<form name="frm25" method="POST">
+  <%= Url %>Store/salesweek
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm25.action='/Store/salesweek';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_3 =========== <br />
+========= 4-2 매출 분석 -  결제정보(1Month) ===========<br />
+<form name="frm26" method="POST">
+  <%= Url %>Store/salesmonth
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm26.action='/Store/salesmonth';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_4 =========== <br />
+========= 4-2 매출 분석 -  결제정보(3Month) ===========<br />
+<form name="frm27" method="POST">
+  <%= Url %>Store/salesmonth3
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm27.action='/Store/salesmonth3';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_5 =========== <br />
+========= 4-2 매출 분석 -  결제정보(기간 선택)) ===========<br />
+<form name="frm28" method="POST">
+  <%= Url %>Store/salesdetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StartDt" style="width:80px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:80px" placeholder="EndDt">
+    <input value="조회" onclick="javascript: frm28.action='/Store/salesdetail';" type="submit" /><br />
+    1, 2021-05-24, 2021-05-27
+</form><br />
+=========QSW_009_6 =========== <br />
+========= 4-2 매출 분석 -  결제수단별 매출 (1day) ===========<br />
+<form name="frm84" method="POST">
+  <%= Url %>Store/payday
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm84.action='/Store/payday';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_7 =========== <br />
+========= 4-2 매출 분석 -  결제수단별 매출 (1week) ===========<br />
+<form name="frm85" method="POST">
+  <%= Url %>Store/payweek
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm85.action='/Store/payweek';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_8 =========== <br />
+========= 4-2 매출 분석 -  결제수단별 매출 (1month) ===========<br />
+<form name="frm86" method="POST">
+  <%= Url %>Store/paymonth
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm86.action='/Store/paymonth';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_9 =========== <br />
+========= 4-2 매출 분석 -  결제수단별 매출 (3month) ===========<br />
+<form name="frm87" method="POST">
+  <%= Url %>Store/paymonth3
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm87.action='/Store/paymonth3';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_009_10 =========== <br />
+========= 4-2 매출 분석 -  결제수단별 매출 (기간 선택) ===========<br />
+<form name="frm88" method="POST">
+  <%= Url %>Store/paydetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StartDt" style="width:80px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:80px" placeholder="EndDt">
+    <input value="조회" onclick="javascript: frm88.action='/Store/paydetail';" type="submit" /><br />
+    1, 2021-05-24, 2021-05-28
+</form><br />
+=========QSW_010 =========== <br />
+========= 4-3 영업 분석 -  주문시간 (1day) ===========<br />
+<form name="frm29" method="POST">
+  <%= Url %>Store/timeday
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm29.action='/Store/timeday';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_010_2 =========== <br />
+========= 4-3 영업 분석 -  주문시간 (1week) ===========<br />
+<form name="frm80" method="POST">
+  <%= Url %>Store/timeweek
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm80.action='/Store/timeweek';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_010_3 =========== <br />
+========= 4-3 영업 분석 -  주문시간 (1month) ===========<br />
+<form name="frm81" method="POST">
+  <%= Url %>Store/timemonth
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm81.action='/Store/timemonth';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_010_4 =========== <br />
+========= 4-3 영업 분석 -  주문시간 (3month) ===========<br />
+<form name="frm82" method="POST">
+  <%= Url %>Store/timemonth3
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm82.action='/Store/timemonth3';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_010_5 =========== <br />
+========= 4-3 영업 분석 -  주문시간 (기간설정)) ===========<br />
+<form name="frm83" method="POST">
+  <%= Url %>Store/timeDetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StartDt" style="width:80px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:80px" placeholder="EndDt">
+    <input value="조회" onclick="javascript: frm83.action='/Store/timeDetail';" type="submit" /><br />
+    1, 2021-05-24, 2021-05-27
+</form><br />
+=========QSW_011 =========== <br />
+========= 4-3 상품 분석 -(1day) ===========<br />
+<form name="frm89" method="POST">
+  <%= Url %>Store/menuday
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm89.action='/Store/menuday';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_2 =========== <br />
+========= 4-3 상품 분석 -(1week) ===========<br />
+<form name="frm90" method="POST">
+  <%= Url %>Store/menuweek
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm90.action='/Store/menuweek';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_3 =========== <br />
+========= 4-3 상품 분석 - (1month) ===========<br />
+<form name="frm91" method="POST">
+  <%= Url %>Store/menumonth
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm91.action='/Store/menumonth';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_4 =========== <br />
+========= 4-3 상품 분석 - (3month) ===========<br />
+<form name="frm92" method="POST">
+  <%= Url %>Store/menumonth3
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm92.action='/Store/menumonth3';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_5 =========== <br />
+========= 4-3 상품 분석 - (기간설정)) ===========<br />
+<form name="frm93" method="POST">
+  <%= Url %>Store/menumonthdetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StartDt" style="width:80px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:80px" placeholder="EndDt">
+    <input value="조회" onclick="javascript: frm93.action='/Store/menumonthdetail';" type="submit" /><br />
+    1, 2021-05-24, 2021-05-28
+</form><br />
+=========QSW_011_6 =========== <br />
+========= 4-3 상품 분석 - 카테고리(1day) ===========<br />
+<form name="frm94" method="POST">
+  <%= Url %>Store/menucateday
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm94.action='/Store/menucateday';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_7 =========== <br />
+========= 4-3 상품 분석 - 카테고리 (1week) ===========<br />
+<form name="frm95" method="POST">
+  <%= Url %>Store/menucateweek
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm95.action='/Store/menucateweek';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_8 =========== <br />
+========= 4-3 상품 분석 - 카테고리(1month) ===========<br />
+<form name="frm96" method="POST">
+  <%= Url %>Store/menucatemonth
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm96.action='/Store/menucatemonth';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_9 =========== <br />
+========= 4-3 상품 분석 - 카테고리(3month) ===========<br />
+<form name="frm97" method="POST">
+  <%= Url %>Store/menucatemonth3
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm97.action='/Store/menucatemonth3';" type="submit" /><br />
+    1
+</form><br />
+=========QSW_011_10 =========== <br />
+========= 4-3 상품 분석 - 카테고리(기간설정)) ===========<br />
+<form name="frm98" method="POST">
+  <%= Url %>Store/menucatemonthdetail
+    <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input type="text" name="StartDt" style="width:80px" placeholder="StartDt">
+    <input type="text" name="EndDt" style="width:80px" placeholder="EndDt">
+    <input value="조회" onclick="javascript: frm98.action='/Store/menucatemonthdetail';" type="submit" /><br />
+    1, 2021-05-24, 2021-05-28
+</form><br />
+
+============파일 업로드===========<br />
+<form name="frm100" method="POST">
+  <table border="1" style="width:600px;line-height: 30px;"> 
+    <tr>
+      <td style="color:blue">ID : <input type="text" name="FileId" style="width:60px" placeholder="FileId" > Insert때 사용X  검색조건-5 </td>
+    </tr>
+    <tr>
+      <td style="color:red">저장 파일명 : <input type="text" name="FileEncNm" style="width:80px" placeholder="FileEncNm" >    </td>       
+    </tr>
+    <tr>
+      <td  style="color:red"> 실제 파일명 : <input type="text" name="FileOrgNm" style="width:80px" placeholder="FileOrgNm" >     </td>
+    </tr>
+    <tr>
+      <td  style="color:red">파일 경로 : <input type="text" name="FilePath" style="width:80px"placeholder="FilePath" >    </td>
+    </tr>
+    <tr>
+      <td  style="color:red">파일 사이즈 : <input type="text" name="FileSize" style="width:140px"placeholder="FileSize" >    </td>
+    </tr>
+    <tr>
+      <td style="color:red">파일타입 : <input type="text" name="FileType" style="width:66px"placeholder="FileType" > jpg   </td>
+    </tr>
+    <tr>
+      <td  style="color:red">매장ID : <input type="text" name="StoreId" style="width:300px"placeholder="StoreId" ></td>
+    </tr>
+    <tr>
+      <td  style="color:red">타입 : <input type="text" name="Type" style="width:86px" placeholder="Type">  M메뉴 S매장 </td>
+    </tr>
+    <tr>
+      <td  style="color:red">참고ID(menu Id) : <input type="text" name="RefId" style="width:86px"placeholder="RefId" >   </td>
+    </tr>
+    <tr>
+      <td  style="color:red">삭제여부 : <input type="text" name="DelYn" style="width:86px" placeholder="DelYn"> </td>
+    </tr>
+    <tr>
+      <td  style="color:red">등록자 : <input type="text" name="InsertId" style="width:400px" placeholder="InsertId">  <br />  </td>
+    </tr>
+    <tr>
+      <td  style="color:red">등록일 : <input type="text" name="InsertDt" style="width:60px" placeholder="InsertDt">Insert때 사용X  </td>
+    </tr>
+    <tr>
+      <td>
+        <%= Url %>menu/ImagesInfo
+          <input value="조회" onclick="javascript: frm100.action='/menu/ImagesInfo';" type="submit" /><br/> 
+        <%= Url %>menu/ImagesInsert
+        <input value="등록" onclick="javascript: frm100.action='/menu/ImagesInsert';" type="submit" /> <br/>
+        <%= Url %>menu/ImagesDelete
+        <input value="수정" onclick="javascript: frm100.action='/menu/ImagesDelete';"  type="submit" /> <br/>
+      </td>
+    </tr>
+</table>
+</form>
+
+============결제취소===========<br />
+<form name="frm105" method="POST">
+  <%= Url %>orders/PayCancle
+  <input type="text" name="UserPayId" style="width:80px" placeholder="UserPayId">
+  <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+  <input value="조회" onclick="javascript: frm105.action='/orders/PayCancle';" type="submit" /><br />
+    210621-imp_800850107578, 1, 
+</form><br />
+
+============속도테스트 OC,RC,CP===========<br />
+<form name="frm109" method="POST">
+  <%= Url %>orders/OCRCCP
+  <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+    <input value="조회" onclick="javascript: frm109.action='/orders/OCRCCP';" type="submit" /><br />
+    1
+</form><br />
+============속도테스트 상태업데이트 통합 RC,PC,PUC,CUP===========<br />
+<form name="frm110" method="POST">
+  <%= Url %>orders/OrderUpdate
+  <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+  <input type="text" name="UserPayId" style="width:80px" placeholder="UserPayId">
+  <input type="text" name="OrderStatus" style="width:80px" placeholder="OrderStatus">
+  <input value="등록" onclick="javascript: frm110.action='/orders/OrderUpdate';" type="submit" /><br />
+    1 , 210702-imp_303675608471, RC
+</form><br />
+
+============알람(주문정보, 주문취소정보, 갯수 통합)===========<br />
+<form name="frm111" method="GET">
+  <%= Url %>orders/OrderAlarm
+  <input type="text" name="StoreId" style="width:80px" placeholder="StoreId">
+  <input value="조회" onclick="javascript: frm111.action='/orders/OrderAlarm';" type="submit" /><br />
+    1
+</form><br />
+
+
+</body>
+
+</html>
